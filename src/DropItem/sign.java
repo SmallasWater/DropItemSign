@@ -50,12 +50,12 @@ public class sign extends PluginBase implements Listener{
         return new Config(this.getDataFolder()+"/config.yml",Config.YAML);
     }
 
-    @EventHandler
+   @EventHandler
     public void PlayerCanDrop(PlayerInteractEvent event) throws Exception {
         Player player = event.getPlayer();
         if(isTrash(event.getBlock())){
-            if(player.getInventory().getItemInHand().getId() != 0){
-                if(player.isSneaking()){
+            if(player.isSneaking()){
+                if(player.getInventory().getItemInHand().getId() != 0){
                     if(dropItem.containsKey(player)){
                         if(dropItem.get(player).equals(player.getInventory().getItemInHand(),true,true)){
                             player.getInventory().removeItem(player.getInventory().getItemInHand());
